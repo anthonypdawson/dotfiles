@@ -1,0 +1,77 @@
+# basic settings... self explanatory
+deflogin on
+autodetach on
+startup_message off
+idle 600 lockscreen
+
+# the dash makes it a login shell
+#defshell -
+defshell bash
+activity ""
+bell_msg ""
+vbell on
+vbell_msg ""
+defscrollback 2048
+nonblock on
+defutf8 on
+defbce on
+defflow off
+msgwait 1
+altscreen on
+
+term screen-256color-bce
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# enable SHIFT-PGUP / SHIFT-PGDOWN scroll
+termcapinfo xterm* ti@:te@
+
+hardstatus on
+#hardstatus message '%H'
+caption always
+caption string '%{= wk}[ %{r}%H %{-}][ %{= wk}%-w%{+b d}%n %t%{-}%+w%= %{k}][%{b} %d/%m%{k} %c %{k}]'
+##caption string '%{= wk}[ %{r}%H %{-}][ %-w%{+b d}%n %t%{-}%+w%= ][%{b} %d/%m%{-}%{k} %c %{-}]%{-}'
+hardstatus string '%{= kG}%{C}Screen: %{c}%{= kG}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{C} %d-%m %{W}%c %{g}]'
+# Ctrl-A is escape
+escape ^A^A
+bind o other
+
+
+#
+# Shortcuts
+#
+
+# only Shift+k to kill - prevent accidents
+bind k
+bind ^k
+bind K kill
+
+bindkey -k F2 hardstatus alwaysignore
+bindkey -k F1 hardstatus alwayslastline
+# PREVIOUS WINDOW
+# Ctrl + Alt + Left from gnome-terminal
+bindkey ^[[1;7C prev
+
+# Ctrl+Alt+Left from putty
+bindkey ^[^[[D prev
+
+# NEXT WINDOW
+# Ctrl + Alt + Right from gnome-terminal
+bindkey ^[[1;7D next
+
+# Ctrl+Alt+Right from putty
+bindkey ^[^[[C next
+
+
+# change window with ALT-Q ALT-W
+bindkey "^[q" prev
+bindkey "^[w" next
+
+# no 0 screen
+bind c screen 1
+bind 0 select 10
+#screen -t rtorrentd	1
+#screen -t htop 		2 htop
+#screen -t shell 	3
+# select screen 1 by default
+screen 1
+
