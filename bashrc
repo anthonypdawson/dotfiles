@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export src=~/src/
+explrt emacs.d=/home/ayd/.emacs.d/
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -113,4 +115,4 @@ else
         [ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
 fi
 [[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
-source ~/src/misc/cdots-1.2.1/cdots.sh
+source $src/dotfiles/cdots/cdots.sh
