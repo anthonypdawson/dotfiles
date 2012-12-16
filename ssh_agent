@@ -1,7 +1,7 @@
+#!/bin/bash
+
 SSH_ENV="$HOME/.ssh/environment"
 
-#echo 'Setting up SSH_ENV'
-#echo $SSH_ENV
 # start the ssh-agent
 function start_agent {
 #    echo "Initializing new SSH agent..."
@@ -22,7 +22,7 @@ function test_identities {
 #        ssh-add
         # $SSH_AUTH_SOCK broken so we start a new proper agent
         if [ $? -eq 2 ];then
-	   echo "$SSH_AUTH_SOCK broken so we will start new agent"
+#	   echo "$SSH_AUTH_SOCK broken so we will start new agent"
             start_agent
         fi
     fi
@@ -30,7 +30,7 @@ function test_identities {
 
 # check for running ssh-agent with proper $SSH_AGENT_PID
 if [ -n "$SSH_AGENT_PID" ]; then
-    echo "Checking for running ssh-agent"
+#    echo "Checking for running ssh-agent"
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent | grep -v grep > /dev/null
     if [ $? -eq 0 ]; then
 #     echo "Found ssh-agent"

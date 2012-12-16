@@ -2,7 +2,7 @@
 deflogin on
 autodetach on
 startup_message off
-idle 600 lockscreen
+#idle 600 lockscreen
 
 # the dash makes it a login shell
 #defshell -
@@ -21,6 +21,7 @@ altscreen on
 
 term screen-256color-bce
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm*|linux*|rxvt*|Eterm* OP
 #terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 # enable SHIFT-PGUP / SHIFT-PGDOWN scroll
 termcapinfo xterm* ti@:te@
@@ -69,9 +70,10 @@ bindkey "^[w" next
 # no 0 screen
 bind c screen 1
 bind 0 select 10
-#screen -t rtorrentd	1
-#screen -t htop 		2 htop
-#screen -t shell 	3
-# select screen 1 by default
-screen 1
+screen -t rtorrentd	1 rtorrent
+screen -t htop 		2 htop
+screen -t newznab 	3 bash /var/www/newznab/misc/update_scripts/cron_scripts/newznab_screen_mine.sh
+screen -t shell		4 bash
+# select screen 4 by default
+screen 4
 
