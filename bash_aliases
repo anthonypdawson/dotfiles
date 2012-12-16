@@ -9,13 +9,13 @@ alias ll='ls -lh'                         # list detailed with human-readable si
 alias la='ls -a'                          # list all files
 alias dir='ls -1'                         # windows-style list
 alias f='find | grep'                     # quick search
-alias c='clear'                           # clear screen
+alias cls='clear'                           # clear screen
 #alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # get xprop CLASS and NAME
 alias se='sudo emacs'                       # lazy
 alias grep='grep --color=auto'            # colourized grep
 alias egrep='egrep --color=auto'          # colourized egrep
 alias pgrep='ps aux | grep -v grep | grep'  # search process
-alias fixres="xrandr --size 1680x1050"    # reset resolution
+#alias fixres="xrandr --size 1680x1050"    # reset resolution
 alias clam='clamscan --bell -i'           # clamav scan a file
 alias clamt='clamscan -r --bell -i ~/tmp' # clamav scan ~/tmp
 alias getip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
@@ -23,11 +23,12 @@ alias psm="echo '%CPU %MEM   PID COMMAND' && ps hgaxo %cpu,%mem,pid,comm | sort 
 #unalias -a               # uncomment to unalias everything 
 
 
+
 # sc - gnu screen function
 # usage: lists screen sessions, otherwise
 #        sc <name> reattaches to <name>, otherwise
 #        sc <name> creates a new session <name>.
-sc ()
+s()
 {
   if [[ $1 ]]; then
     screen -dRR -S $HOSTNAME.$1
@@ -37,6 +38,10 @@ sc ()
 }
 
 
+sc()
+{
+ screen -r
+}
 # nohup - run command detached from terminal and without output
 # usage: nh <command>
 nh()
