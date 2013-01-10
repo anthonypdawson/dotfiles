@@ -106,11 +106,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-# handle screen/tmux & ssh
-if [ ! -z "`which tmux`" ]; then
-        [ -f "$HOME/.bashrc.tmux" ] && source "$HOME/.bashrc.tmux"
-else
-        [ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
-fi
+## handle screen/tmux & ssh
+## Disabled for now since I don't want to do either
+#if [ ! -z "`which tmux`" ]; then
+#        [ -f "$HOME/.bashrc.tmux" ] && source "$HOME/.bashrc.tmux"
+#else
+#        [ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
+#fi
 [[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
-source ~/src/misc/cdots-1.2.1/cdots.sh
+source ~/.cdots/cdots.sh
+
+
+[[ -s $USERPROFILE/.pik/.pikrc ]] && source $USERPROFILE/.pik/.pikrc
