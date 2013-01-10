@@ -20,6 +20,19 @@ alias clam='clamscan --bell -i'           # clamav scan a file
 alias clamt='clamscan -r --bell -i ~/tmp' # clamav scan ~/tmp
 alias getip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias psm="echo '%CPU %MEM   PID COMMAND' && ps hgaxo %cpu,%mem,pid,comm | sort -nrk1 | head -n 10 | sed -e 's/-bin//' | sed -e 's/-media-play//'"
+
+# Git aliases
+alias stat="git stat"
+alias gdiff="git adiff"
+alias clone="git clone"
+alias co="git checkout"
+alias pull="git pull"
+alias push="git push"
+alias branch="git branch"
+alias commit="git commit"
+alias gadd="git add"
+# /Git aliases
+
 #unalias -a               # uncomment to unalias everything 
 
 # sc - gnu screen function
