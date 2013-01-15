@@ -1,0 +1,42 @@
+[gui]
+	recentrepo = C:/Users/adawson2/Dropbox/src/git/extraneous
+	recentrepo = C:/Users/adawson2/src/git/Attendance
+[core]
+	editor = emacs -nw
+	excludesfile = c:/Users/adawson2/.gitignore_global
+	autocrlf = true
+	whitespace = cr-at-eol
+[push]
+[credential]
+[user]
+	email = adawson2@vcu.edu
+	name = Anthony Dawson
+[alias]
+	co = checkout
+	stat = status
+	ci = commit
+	br = branch
+	staged = diff --cached
+	update = pull
+	st = status
+[color]
+	ui = true
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	pager = true
+[merge]
+        tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = diffuse \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+        trustExitCode = false
+[diff]
+	tool = diffuse
+	external = c:/Users/adawson2/Apps/diffuse.sh
+[difftool "diffmerge"]
+        cmd = "/c/Program Files/SourceGear/Common/DiffMerge/sgdm.exe" \"$LOCAL\" \"$REMOTE\"
+
+[push]
+	default = simple
