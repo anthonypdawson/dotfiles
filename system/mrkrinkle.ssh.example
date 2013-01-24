@@ -1,0 +1,25 @@
+# Taken from http://surniaulula.com/2012/12/10/autossh-startup-script-for-multiple-tunnels/
+
+# Check connection every 10 seconds, and after 3 tries (30 seconds), drop and
+# let autossh re-connect.
+ServerAliveInterval="60"
+ServerAliveCountMax="3"
+StrictHostKeyChecking="no"
+ 
+LocalUser="root"
+IdentityFile="~/.ssh/id_rsa.pub"
+ 
+RemoteUser="ayd"
+RemoteHost="ayd.dyndns.org"
+RemotePort="2020"
+ 
+# Array of ports to be forwarded:
+# 
+# Example: Forward port 3307, listening on 127.0.0.1 on the remote side, to
+# 127.0.0.1 port 3306 on the local side. Forward port 8081, listening on
+# 127.0.0.1 on the local side, to 10.100.1.60 port 80 on the remote side.
+#
+ForwardPort=(
+    "L 127.0.0.1:3388:127.0.0.1:3389"
+    "L 127.0.0.1:8180:127.0.0.1:8180"
+)
