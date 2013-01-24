@@ -1,0 +1,6 @@
+
+#!/bin/sh
+
+# Example of an easy way to establish ssh tunnels in the background
+autossh -M 0 -q -f -N -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -L 3388:127.0.0.1:3389 -L 8180:127.0.0.1:8180 user@host -p 22
+
